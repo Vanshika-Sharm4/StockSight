@@ -1,25 +1,20 @@
-<div align="center">
-
 # 📈 StockSight
 
 **A full-stack, real-time stock market dashboard built with React, TypeScript, Express, and Docker.**
 
 Search any public ticker to view live pricing, daily change, and 30-day historical performance — rendered in a polished, dark-themed, glassmorphism interface inspired by modern finance platforms.
 
-[Live Demo](#) · [Report Bug](#) · [Request Feature](#)
-
-</div>
+[Live Demo](#)
 
 ---
 
 ## 🖼️ Preview
 
-> _Add 2–3 screenshots or a short GIF here once your deployment is live. Recruiters and hiring managers almost always look at the README image before reading a single line of text — this is the single highest-impact addition you can make._
+**Home screen**
+![StockSight home screen](./screenshots/home.png)
 
-```
-[ Screenshot: Home page with search bar ]
-[ Screenshot: Stock card + chart populated with real data ]
-```
+**Live stock search with interactive chart**
+![StockSight stock detail view](./screenshots/stock-detail.png)
 
 ---
 
