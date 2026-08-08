@@ -1,17 +1,31 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg: #0a0e14;
-  --color-surface: rgba(255, 255, 255, 0.05);
-  --color-surface-border: rgba(255, 255, 255, 0.1);
-  --color-text: #e6e9ef;
-  --color-text-dim: #8b93a7;
-  --color-accent: #aa3bff;
-  --color-accent-dim: rgba(170, 59, 255, 0.15);
-  --color-positive: #22c55e;
-  --color-negative: #ef4444;
+  /* Base surfaces */
+  --color-bg: #0d0d11;
+  --color-bg-alt: #13131a;
+  --color-surface: #1a1a24;
+  --color-surface-border: #2a2a38;
+  --color-surface-hover: #21212e;
 
-  --font-sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  /* Text */
+  --color-text: #e9e9f0;
+  --color-text-dim: #8b8b9e;
+  --color-text-faint: #5c5c6e;
+
+  /* Accent - neon violet */
+  --color-accent: #a855f7;
+  --color-accent-2: #8b5cf6;
+  --color-accent-dim: rgba(168, 85, 247, 0.15);
+  --color-accent-glow: rgba(168, 85, 247, 0.35);
+
+  /* Status */
+  --color-positive: #10b981;
+  --color-positive-dim: rgba(16, 185, 129, 0.15);
+  --color-negative: #ef4444;
+  --color-negative-dim: rgba(239, 68, 68, 0.15);
+
+  --font-sans: 'Inter', system-ui, 'Segoe UI', Roboto, sans-serif;
 }
 
 body {
@@ -20,9 +34,47 @@ body {
   font-family: var(--font-sans);
 }
 
+/* Glass card - base surface used across dashboard widgets */
 .glass {
-  background: var(--color-surface);
+  background: linear-gradient(180deg, var(--color-surface) 0%, rgba(26, 26, 36, 0.6) 100%);
   border: 1px solid var(--color-surface-border);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.glass-hover {
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+.glass-hover:hover {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 24px var(--color-accent-dim);
+}
+
+/* Violet glow accents, used behind CTAs and chart fills */
+.glow-accent {
+  box-shadow: 0 0 40px var(--color-accent-glow);
+}
+
+.text-gradient-accent {
+  background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-accent-2) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.bg-gradient-accent {
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-2) 100%);
+}
+
+/* Scrollbar - kept minimal/dark to match theme */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-surface-border);
+  border-radius: 8px;
 }

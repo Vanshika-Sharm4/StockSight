@@ -191,7 +191,7 @@ This project was intentionally built to reflect practices used in real productio
 ## 👤 Author
 
 **Vanshika Sharma**
-[LinkedIn](#) · [GitHub](#) · [Portfolio](#)
+[LinkedIn](www.linkedin.com/in/vanshikasharm4) · [GitHub](https://github.com/Vanshika-Sharm4) · [Portfolio](#)
 
 ---
 
