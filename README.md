@@ -11,7 +11,6 @@ Search any public ticker to view live pricing, daily change, and 30-day historic
 ## 🖼️ Preview
 
 **Home screen**
-![StockSight home screen](./screenshots/home.png)
 
 ---
 
