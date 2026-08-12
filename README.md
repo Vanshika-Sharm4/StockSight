@@ -13,9 +13,6 @@ Search any public ticker to view live pricing, daily change, and 30-day historic
 **Home screen**
 ![StockSight home screen](./screenshots/home.png)
 
-**Live stock search with interactive chart**
-![StockSight stock detail view](./screenshots/stock-detail.png)
-
 ---
 
 ## 🧭 Overview
