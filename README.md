@@ -4,7 +4,7 @@
 
 Search any public ticker to view live pricing, daily change, and 30-day historical performance — rendered in a polished, dark-themed, glassmorphism interface inspired by modern finance platforms.
 
-[Live Demo](#)
+[Visit Deployed Website](http://18.224.137.193/)
 
 ---
 
