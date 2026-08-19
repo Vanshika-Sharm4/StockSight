@@ -2,7 +2,9 @@ import axios from 'axios';
 import type { Holding } from '../types/dashboard';
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5050/api',
+  // In local dev, set VITE_API_URL=http://localhost:5050/api in frontend/.env.
+  // In production (Docker/AWS), leave unset - nginx proxies /api to the backend container.
+  baseURL: import.meta.env.VITE_API_URL || '/api',
 });
 
 export interface AIAnalysis {
