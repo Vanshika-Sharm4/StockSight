@@ -5,12 +5,21 @@ services:
       - "5050"
     env_file:
       - ./backend/.env
+    environment:
+      # Where user accounts are stored inside the container...
+      - DATA_DIR=/app/data
+    volumes:
+      # ...and the named volume that keeps them across rebuilds/redeploys.
+      - stocksight-data:/app/data
     restart: unless-stopped
 
   frontend:
     build: ./frontend
     ports:
-      - "8080:80"
+      - "80:80"
     depends_on:
       - backend
     restart: unless-stopped
+
+volumes:
+  stocksight-data:

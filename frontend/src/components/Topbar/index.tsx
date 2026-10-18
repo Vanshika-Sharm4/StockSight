@@ -4,9 +4,10 @@ import type { AppUser } from '../../types/dashboard';
 interface TopbarProps {
   user: AppUser;
   onAskAI: (prompt: string) => void;
+  onSignOut: () => void;
 }
 
-function Topbar({ user, onAskAI }: TopbarProps) {
+function Topbar({ user, onAskAI, onSignOut }: TopbarProps) {
   const [prompt, setPrompt] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -53,6 +54,14 @@ function Topbar({ user, onAskAI }: TopbarProps) {
             <div className="text-xs text-text-dim leading-tight">{user.email}</div>
           </div>
         </div>
+        <button
+          onClick={onSignOut}
+          className="h-10 w-10 rounded-full glass glass-hover flex items-center justify-center text-text-dim hover:text-text"
+          aria-label="Sign out"
+          title="Sign out"
+        >
+          <SignOutIcon className="h-4.5 w-4.5" />
+        </button>
       </div>
 
       <form onSubmit={handleSubmit} className="w-full md:w-auto md:min-w-[340px] order-last md:order-none">
@@ -83,6 +92,14 @@ function GearIcon(props: React.SVGProps<SVGSVGElement>) {
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" {...props}>
       <circle cx="12" cy="12" r="3" />
       <path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z" />
+    </svg>
+  );
+}
+function SignOutIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+      <path d="M16 17l5-5-5-5M21 12H9" />
     </svg>
   );
 }
