@@ -1,6 +1,15 @@
 import { useState } from 'react';
+import axios from 'axios';
 import { askAI, getPortfolioInsights, type AIAnalysis } from '../services/aiService';
 import type { Holding } from '../types/dashboard';
+
+function describe(err: unknown): string {
+  if (axios.isAxiosError(err)) {
+    const detail = err.response?.data?.detail;
+    return `(${err.response?.status ?? 'no response'}${detail ? `: ${detail}` : ''})`;
+  }
+  return '';
+}
 
 export function useAIQuery() {
   const [open, setOpen] = useState(false);
@@ -18,8 +27,8 @@ export function useAIQuery() {
     try {
       const res = await askAI(prompt, holdings);
       setResult(res);
-    } catch {
-      setError('StockSight AI could not process that request. Try again.');
+    } catch (err) {
+      setError(`StockSight AI could not process that request. ${describe(err)}`);
     } finally {
       setLoading(false);
     }
@@ -34,8 +43,8 @@ export function useAIQuery() {
     try {
       const res = await getPortfolioInsights(holdings);
       setResult(res);
-    } catch {
-      setError('Could not generate insights right now. Try again.');
+    } catch (err) {
+      setError(`Could not generate insights right now. ${describe(err)}`);
     } finally {
       setLoading(false);
     }

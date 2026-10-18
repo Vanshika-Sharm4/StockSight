@@ -14,7 +14,8 @@ function getClient(): GoogleGenAI {
   return client;
 }
 
-const MODEL = 'gemini-2.5-flash';
+// Override with GEMINI_MODEL in backend/.env if Google retires or limits this model.
+const MODEL = process.env.GEMINI_MODEL || 'gemini-3.5-flash-lite';
 
 const SYSTEM_PROMPT = `You are StockSight AI, a financial analysis assistant embedded in a stock
 portfolio dashboard. You are given a user's question and, optionally, their

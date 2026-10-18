@@ -4,6 +4,10 @@ import type { AIInsightsRequest, AIQueryRequest } from '../types/ai';
 
 const router = Router();
 
+function errMsg(err: unknown): string {
+  return (err instanceof Error ? err.message : String(err)).slice(0, 300);
+}
+
 router.post('/query', async (req, res) => {
   const { prompt, holdings } = req.body as AIQueryRequest;
 
@@ -16,7 +20,7 @@ router.post('/query', async (req, res) => {
     res.json(analysis);
   } catch (err) {
     console.error('AI query error:', err);
-    res.status(502).json({ error: 'AI query failed' });
+    res.status(502).json({ error: 'AI query failed', detail: errMsg(err) });
   }
 });
 
@@ -32,7 +36,7 @@ router.post('/insights', async (req, res) => {
     res.json(analysis);
   } catch (err) {
     console.error('AI insights error:', err);
-    res.status(502).json({ error: 'AI insights failed' });
+    res.status(502).json({ error: 'AI insights failed', detail: errMsg(err) });
   }
 });
 
